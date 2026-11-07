@@ -1,0 +1,8 @@
+{
+  "name": "px-orng-credit-bucket-monitor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test invariants/*.test.ts"
+  }
+}
