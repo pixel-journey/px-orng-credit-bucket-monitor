@@ -1,10 +1,9 @@
-# Security
+# Security notes — credit gate
 
-| Surface | Closed by |
+| Mitigated | Behavior |
 | --- | --- |
-| Wager with empty bucket | insufficient refused |
-| Debit on failed gate | acceptWager no-op |
-| Zero / oversized wager | bad_wager |
-| Negative balances | bad_bucket |
+| Bad wager | refused, no debit |
+| Insufficient | refused, no debit |
+| Paid overflow | topUp refused |
 
-Not claimed: live orng.wax table reads, stake memo, wasm.
+Production: read authoritative oracle state; do not trust client-reported free credits.
