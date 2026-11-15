@@ -1,25 +1,28 @@
-# Worked examples — credit bucket
+# Worked examples — ORNG credit bucket
 
-## Example A — free path
+Dapp `pxrngdapp`. `T0 = 1_700_000_000`.
 
-Bucket with freeCredits 5 → `acceptWager` → source free, freeCredits 4.
+## Preference order
 
-## Example B — paid path
+Empty bucket → `canRequest` is `insufficient`.
 
-freeCredits 0, paidCredits 3 → source paid, paidCredits 2.
+Free 3 + paid 5, wager 1 → source `free`, creditsLeft 2.
 
-## Example C — insufficient
+Free 0 + paid 2 → source `paid`.
 
-Both zero (and no refill yet) → `insufficient`; bucket unchanged.
+## Refill
 
-## Example D — refill
+Free 0, `refillAt = T0+100`, `refillAmount = 10`.
 
-`nowTs >= refillAt` → freeCredits becomes refillAmount before the gate runs.
+| nowTs | freeCredits |
+| --- | --- |
+| T0+50 | 0 |
+| T0+100 | 10, next refillAt T0+100+86400 |
 
-## Example E — bad wager
+## acceptWager
 
-wager 0 or over MAX → `bad_wager`; no consume.
+Free 2 → after accept free 1. Insufficient → gate fails and **bucket unchanged**.
 
-## Example F — topUpPaid
+Wager `0` or `1_000_000_001` refused. `topUpPaid(7)` → paid 7; amount 0 throws. `consume` on empty free/paid throws. Bad dapp name throws.
 
-Adds paid credits with overflow guard at MAX_CREDITS.
+No live table read from `orng.wax`.
