@@ -1,5 +1,24 @@
-# Tips — credits before wager
+# Tips — credit gate before requestrand
 
-- Gate **before** escrowing player stakes when RNG is mandatory.
-- Pair with [topup vault](https://github.com/pixel-journey/px-orng-pay-per-use-topup-vault) when paid path is empty.
-- Prefer [orng.wax](https://github.com/worldwide-asset-exchange/wax-orng) docs for live credit economics.
+## Do
+
+- Gate **before** opening a job row and before broadcasting `requestrand`.
+- Prefer **free** credits over paid so users burn soft quota first.
+- Make fail paths **non-mutating** (acceptWager pattern).
+- Schedule free refill explicitly; document the period (here +86400 after fire).
+
+## Don't
+
+- Trust a wallet-supplied “I still have free credits” flag.
+- Consume paid when free would have covered the need.
+- Open the job then discover credits are empty.
+
+## Sibling funding paths
+
+| Lab | When |
+| --- | --- |
+| [pay-per-use topup](https://github.com/pixel-journey/px-orng-pay-per-use-topup-vault) | 0.01 WAX per call from a vault |
+| [auto-stake](https://github.com/pixel-journey/px-orng-auto-wax-stake-manager) | Stake WAX for free credits |
+| [v3 starter](https://github.com/pixel-journey/px-orng-v3-randnotify-starter) | Job table + once resolve |
+
+[ORNG-LEARNING-PATH.md](https://github.com/pixel-journey/px-contract-examples-vault/blob/main/docs/ORNG-LEARNING-PATH.md)
