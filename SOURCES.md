@@ -23,4 +23,4 @@ Do not open a job when the gate says no.
 | [auto-stake](https://github.com/pixel-journey/px-orng-auto-wax-stake-manager) | Stake only after free and paid fail |
 | [v3 starter](https://github.com/pixel-journey/px-orng-v3-randnotify-starter) | Job row after the gate |
 | [dual-callback](https://github.com/pixel-journey/px-orng-dual-callback-idempotent) | Once-resolve after entropy |
-| [ORNG path](https://github.com/pixel-journey/px-contract-examples-vault/blob/main/docs/ORNG-LEARNING-PATH.md) | Curriculum + funding order |
+| `px-contract-examples-vault` (private index; not this public course) | Curriculum + funding order |

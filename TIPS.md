@@ -30,4 +30,4 @@ Spend **free** credits before **paid**. If neither covers the need, refuse and *
 | Job row after the gate passes | [v3 starter](https://github.com/pixel-journey/px-orng-v3-randnotify-starter) |
 | Per-account daily cap besides oracle credits | [invariant kit](https://github.com/pixel-journey/px-invariant-kit) counter |
 
-Path: [ORNG-LEARNING-PATH](https://github.com/pixel-journey/px-contract-examples-vault/blob/main/docs/ORNG-LEARNING-PATH.md).
+Path: `px-contract-examples-vault` (private index; not this public course).
