@@ -27,16 +27,9 @@ Bucket with free 3 and paid 5, wager 1 → source **free**, creditsLeft **2**. W
 
 Wager `0` or absurdly large `1_000_000_001` refused.
 
-Numbers: [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md).
-
-### Words
-
-| Word | Meaning here |
-| --- | --- |
-| Free credits | Soft quota that refills on a schedule |
-| Paid credits | Prepaid calls (topped up elsewhere) |
-| acceptWager | Gate + consume in one step; fail ⇒ no mutation |
-| refillAt | Unix time when free credits restore |
+```bash
+npm test
+```
 
 ---
 
@@ -76,9 +69,9 @@ Do not ship a client-reported free balance as authority. After a successful gate
 
 ### Exercises
 
-1. Free 1, paid 0, need 2 — canRequest?  
-2. Why is acceptWager a no-op on fail?  
-3. Does this repo call `orng.wax`? (No.)
+1. Free 1, paid 0, need 2 — canRequest? (**No**.)  
+2. Why is acceptWager a no-op on fail? (Atomic gate.)  
+3. Does this repo call `orng.wax`? (**No**.)
 
 ---
 
