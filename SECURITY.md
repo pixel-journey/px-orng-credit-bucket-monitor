@@ -10,8 +10,15 @@
 | topUp 0 | refused |
 | consume without balance | throws |
 | Bad dapp name | refused |
+| Free preferred over paid | free 3 + paid 5, wager 1 → source **free** |
 
-Prefer **free** credits over paid. Gate and consume are one step.
+## Funding order (do not reorder)
+
+```text
+1. Free credits  (this lab)
+2. Paid credits  (pay-per-use topup)
+3. Stake         (auto-stake) — shortfall only
+```
 
 ## Not closed (production)
 
@@ -24,11 +31,20 @@ Prefer **free** credits over paid. Gate and consume are one step.
 
 ## Attack angles
 
-1. Client invents free credits.
-2. Partial consume on a failed accept.
-3. Opening a job when the gate said no.
-4. Burning paid before free is exhausted.
+1. Client invents free credits.  
+2. Partial consume on a failed accept.  
+3. Opening a job when the gate said no.  
+4. Burning paid before free is exhausted.  
+5. Charging free + paid + stake for one call.
 
 ## Honesty limits
 
-Local policy model only — no live `orng.wax` reads. Related: [topup](https://github.com/pixel-journey/px-orng-pay-per-use-topup-vault) · [auto-stake](https://github.com/pixel-journey/px-orng-auto-wax-stake-manager) · [v3 starter](https://github.com/pixel-journey/px-orng-v3-randnotify-starter).
+Local policy model only — no live `orng.wax` reads.
+
+| Sibling | Distinction |
+| --- | --- |
+| [pay-per-use](https://github.com/pixel-journey/px-orng-pay-per-use-topup-vault) | 0.01 WAX per missing call |
+| [auto-stake](https://github.com/pixel-journey/px-orng-auto-wax-stake-manager) | Last-resort stake plan |
+| [dual-callback](https://github.com/pixel-journey/px-orng-dual-callback-idempotent) | Once-resolve |
+
+[wax-orng](https://github.com/worldwide-asset-exchange/wax-orng) · [docs.wax.io](https://docs.wax.io/).
